@@ -28,6 +28,14 @@ import csv
 """
 El controlador se encarga de mediar entre la vista y el modelo.
 """
+def initcatalog():
+    catalogo=model.initcatalog()
+    return catalogo
+def cargardatos(catalog):
+    videofile=cf.data_dir+'videos-small.csv'
+    input_file=csv.DictReader(open(videofile,encoding="utf-8"))
+    for video in input_file:
+        model.addvideo(catalog,video)
 
 # Inicialización del Catálogo de libros
 

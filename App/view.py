@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along withthis program.  If not, see <http://www.gnu.org/licenses/>.
  """
-
+import time
 import config as cf
 import sys
 import controller
@@ -37,7 +37,10 @@ operación solicitada
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
-    print("2- ")
+    print("2- Videos por categoria y país")
+    print("3- Encontrar video tendencia por país")
+    print("4- Video tendencia por categoria")
+    print("5- Videos por más likes")
 
 catalog = None
 
@@ -49,10 +52,36 @@ while True:
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
-
+        print('Cargan información de los archivos...')
+        catalog=controller.initcatalog()
+        controller.cargardatos(catalog)
+        print("Se cargo la información del catalogo")
+        print("Se cargaron "+ str(lt.size(catalog["videos"]))+ " videos.")
+        
     elif int(inputs[0]) == 2:
-        pass
+        t1=time.process_time()
+        print("Se ejecuto requerimiento 1")
+        t2=time.process_time()
+        print("Tiempo de {:0.6f} ejecución".format(t2-t1))
 
+    elif int(inputs[0]) == 3:
+        t1=time.process_time()
+        print("Se ejecuto requerimiento 2")
+        t2=time.process_time()
+        print("Tiempo de {:0.6f} ejecución".format(t2-t1))
+
+    elif int(inputs[0]) == 4:
+        t1=time.process_time()
+        print("Se ejecuto requerimiento 3")
+        t2=time.process_time()
+        print("Tiempo de {:0.6f} ejecución".format(t2-t1))
+
+    elif int(inputs[0]) == 5:
+        t1=time.process_time()
+        print("Se ejecuto requerimiento 4")
+        t2=time.process_time()
+        print("Tiempo de {:0.6f} ejecución".format(t2-t1))
+    
     else:
         sys.exit(0)
 sys.exit(0)
