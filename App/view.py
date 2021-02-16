@@ -41,7 +41,7 @@ def printMenu():
     print("3- Encontrar video tendencia por país")
     print("4- Video tendencia por categoria")
     print("5- Videos por más likes")
-
+    print("6- Salir")
 catalog = None
 
 """
