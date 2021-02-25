@@ -28,24 +28,38 @@
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
+from DISClib.Algorithms.Sorting import selectionsort as ss
+from DISClib.Algorithms.Sorting import insertionsort as si
 assert cf
 
 """
 Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorias de
 los mismos.
 """
-def initcatalog():
-    return {"videos":lt.newList("ARRAY_LIST")}
-def addvideo(catalog,video):
-    lt.addLast(catalog["videos"],video)
+def initcatalog(listType):
+    return {"videos":lt.newList(listType)}
+
+def subList(list, size):
+    muestra=lt.subList(list,0,size)
+    return {"lista":muestra}
+    
 # Construccion de modelos
 
 # Funciones para agregar informacion al catalogo
-
+def addvideo(catalog,video):
+    lt.addLast(catalog["videos"],video)
 # Funciones para creacion de datos
 
 # Funciones de consulta
 
 # Funciones utilizadas para comparar elementos dentro de una lista
-
+def cmpVideosByViews(video1, video2):
+    return (int(video1['views']) < int(video2['views']))
 # Funciones de ordenamiento
+def sortVideos(catalog, listSortType):
+    if listSortType==1:
+        ss.sort(catalog, cmpVideosByViews)
+    elif listSortType==2:
+        si.sort(catalog, cmpVideosByViews)
+    else:
+        sa.sort(catalog, cmpVideosByViews)
