@@ -30,6 +30,8 @@ from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
 from DISClib.Algorithms.Sorting import selectionsort as ss
 from DISClib.Algorithms.Sorting import insertionsort as si
+from DISClib.Algorithms.Sorting import mergesort as mer
+from DISClib.Algorithms.Sorting import quicksort as qu
 assert cf
 
 """
@@ -61,5 +63,9 @@ def sortVideos(catalog, listSortType):
         ss.sort(catalog, cmpVideosByViews)
     elif listSortType==2:
         si.sort(catalog, cmpVideosByViews)
-    else:
+    elif listSortType==3:
         sa.sort(catalog, cmpVideosByViews)
+    elif listSortType==4:
+        mer.sort(catalog, cmpVideosByViews)
+    else:
+        qu.sort(catalog, cmpVideosByViews)
