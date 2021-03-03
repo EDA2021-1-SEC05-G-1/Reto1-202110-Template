@@ -68,7 +68,7 @@ while True:
         else:
             muestra = controller.subList(catalog["videos"],subListSize)
             print("El tamaño de la lista de muestra es igual a", lt.size(muestra["lista"]))
-        listSortType = int(input("Seleccione el tipo de algoritmo de ordenamiento iterativo:\n1-selection\n2-insertion\n3-shell\n4-merge\n5-quick(por defecto)"))
+        listSortType = int(input("Seleccione el tipo de algoritmo de ordenamiento iterativo:\n1-selection\n2-insertion\n3-shell\n4-merge\n5-quick(por defecto)\n"))
         t1=time.process_time()
         print("Se ejecuto requerimiento 1")
         controller.sortVideos(muestra["lista"],listSortType)
